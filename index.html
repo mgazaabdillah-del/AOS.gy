@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AOS Gallery</title>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#050505;
+  color:#00ffff;
+  padding:20px;
+}
+
+header{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+header h1{
+  font-size:3rem;
+  text-shadow:0 0 15px #00ffff;
+}
+
+header p{
+  color:#88ffff;
+  margin-top:10px;
+}
+
+.search-box{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.search-box input{
+  width:80%;
+  max-width:500px;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  outline:none;
+  background:#111;
+  color:#00ffff;
+  box-shadow:0 0 10px #00ffff44;
+}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:15px;
+  margin-bottom:40px;
+}
+
+.category{
+  background:#111;
+  padding:15px;
+  text-align:center;
+  border-radius:14px;
+  border:1px solid #00ffff55;
+  transition:0.3s;
+}
+
+.category:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 15px #00ffff88;
+}
+
+.wallpapers{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#111;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid #00ffff44;
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:15px;
+}
+
+.card-content h3{
+  margin-bottom:10px;
+}
+
+button{
+  padding:10px 16px;
+  border:none;
+  border-radius:10px;
+  background:#00ffff;
+  color:#000;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+button:hover{
+  background:#66ffff;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>AOS Gallery</h1>
+<p>Gaming Neon Wallpapers for Desktop & Mobile</p>
+</header>
+
+<div class="search-box">
+<input type="text" placeholder="Search wallpapers...">
+</div>
+
+<div class="categories">
+<div class="category">Gaming</div>
+<div class="category">Anime</div>
+<div class="category">Cars</div>
+<div class="category">Dark</div>
+<div class="category">PC</div>
+<div class="category">Mobile</div>
+</div>
+
+<div class="wallpapers">
+
+<div class="card">
+<img src="https://picsum.photos/400/300?1">
+<div class="card-content">
+<h3>Neon City</h3>
+<button>Download</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/300?2">
+<div class="card-content">
+<h3>Cyber Warrior</h3>
+<button>Download</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/300?3">
+<div class="card-content">
+<h3>RGB Arena</h3>
+<button>Download</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/300?4">
+<div class="card-content">
+<h3>Dark Zone</h3>
+<button>Download</button>
+</div>
+</div>
+
+</div>
+
+</body>
+</html>
