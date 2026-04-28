@@ -4,170 +4,231 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AOS Gallery</title>
+
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-  background:#050505;
-  color:#00ffff;
-  padding:20px;
+background:#050505;
+color:#00ffff;
+padding:20px;
 }
 
 header{
-  text-align:center;
-  margin-bottom:30px;
+text-align:center;
+margin-bottom:30px;
 }
 
 header h1{
-  font-size:3rem;
-  text-shadow:0 0 15px #00ffff;
+font-size:3rem;
+text-shadow:0 0 15px #00ffff;
 }
 
 header p{
-  color:#88ffff;
-  margin-top:10px;
+color:#8fffff;
+margin-top:10px;
 }
 
 .search-box{
-  text-align:center;
-  margin-bottom:30px;
+text-align:center;
+margin-bottom:25px;
 }
 
 .search-box input{
-  width:80%;
-  max-width:500px;
-  padding:14px;
-  border:none;
-  border-radius:12px;
-  outline:none;
-  background:#111;
-  color:#00ffff;
-  box-shadow:0 0 10px #00ffff44;
+width:90%;
+max-width:500px;
+padding:14px;
+border:none;
+border-radius:12px;
+background:#111;
+color:#00ffff;
+outline:none;
+box-shadow:0 0 10px #00ffff44;
 }
 
 .categories{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-  gap:15px;
-  margin-bottom:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:12px;
+margin-bottom:35px;
 }
 
 .category{
-  background:#111;
-  padding:15px;
-  text-align:center;
-  border-radius:14px;
-  border:1px solid #00ffff55;
-  transition:0.3s;
+background:#111;
+padding:14px;
+text-align:center;
+border-radius:12px;
+border:1px solid #00ffff55;
+cursor:pointer;
+transition:0.3s;
 }
 
 .category:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 15px #00ffff88;
+transform:scale(1.05);
+box-shadow:0 0 10px #00ffff;
 }
 
 .wallpapers{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
 .card{
-  background:#111;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid #00ffff44;
+background:#111;
+border-radius:15px;
+overflow:hidden;
+border:1px solid #00ffff33;
 }
 
 .card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
+width:100%;
+height:180px;
+object-fit:cover;
+cursor:pointer;
 }
 
 .card-content{
-  padding:15px;
+padding:15px;
 }
 
 .card-content h3{
-  margin-bottom:10px;
+margin-bottom:10px;
+font-size:1.1rem;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
 }
 
 button{
-  padding:10px 16px;
-  border:none;
-  border-radius:10px;
-  background:#00ffff;
-  color:#000;
-  cursor:pointer;
-  font-weight:bold;
+padding:10px 15px;
+border:none;
+border-radius:10px;
+background:#00ffff;
+color:#000;
+font-weight:bold;
+cursor:pointer;
 }
 
 button:hover{
-  background:#66ffff;
+background:#66ffff;
+}
+
+.hidden{
+display:none;
 }
 </style>
 </head>
+
 <body>
 
 <header>
 <h1>AOS Gallery</h1>
-<p>Gaming Neon Wallpapers for Desktop & Mobile</p>
+<p>Gaming Neon Wallpapers</p>
 </header>
 
 <div class="search-box">
-<input type="text" placeholder="Search wallpapers...">
+<input type="text" id="search" placeholder="Search wallpapers..." onkeyup="searchWallpapers()">
 </div>
 
 <div class="categories">
-<div class="category">Gaming</div>
-<div class="category">Anime</div>
-<div class="category">Cars</div>
-<div class="category">Dark</div>
-<div class="category">PC</div>
-<div class="category">Mobile</div>
+<div class="category" onclick="filterCategory('all')">All</div>
+<div class="category" onclick="filterCategory('gaming')">Gaming</div>
+<div class="category" onclick="filterCategory('anime')">Anime</div>
+<div class="category" onclick="filterCategory('cars')">Cars</div>
+<div class="category" onclick="filterCategory('dark')">Dark</div>
 </div>
 
-<div class="wallpapers">
+<div class="wallpapers" id="gallery">
 
-<div class="card">
+<div class="card gaming">
+<a href="https://picsum.photos/1200/800?1" target="_blank">
 <img src="https://picsum.photos/400/300?1">
+</a>
 <div class="card-content">
-<h3>Neon City</h3>
-<button>Download</button>
+<h3>Cyber Arena</h3>
+<div class="buttons">
+<a href="https://picsum.photos/1200/800?1" download><button>Download</button></a>
+</div>
 </div>
 </div>
 
-<div class="card">
+<div class="card anime">
+<a href="https://picsum.photos/1200/800?2" target="_blank">
 <img src="https://picsum.photos/400/300?2">
+</a>
 <div class="card-content">
-<h3>Cyber Warrior</h3>
-<button>Download</button>
+<h3>Anime Neon</h3>
+<div class="buttons">
+<a href="https://picsum.photos/1200/800?2" download><button>Download</button></a>
+</div>
 </div>
 </div>
 
-<div class="card">
+<div class="card cars">
+<a href="https://picsum.photos/1200/800?3" target="_blank">
 <img src="https://picsum.photos/400/300?3">
+</a>
 <div class="card-content">
-<h3>RGB Arena</h3>
-<button>Download</button>
+<h3>Street Racer</h3>
+<div class="buttons">
+<a href="https://picsum.photos/1200/800?3" download><button>Download</button></a>
+</div>
 </div>
 </div>
 
-<div class="card">
+<div class="card dark">
+<a href="https://picsum.photos/1200/800?4" target="_blank">
 <img src="https://picsum.photos/400/300?4">
+</a>
 <div class="card-content">
 <h3>Dark Zone</h3>
-<button>Download</button>
+<div class="buttons">
+<a href="https://picsum.photos/1200/800?4" download><button>Download</button></a>
+</div>
 </div>
 </div>
 
 </div>
+
+<script>
+function filterCategory(category){
+let cards=document.querySelectorAll('.card');
+
+cards.forEach(card=>{
+if(category==='all'){
+card.style.display='block';
+}else if(card.classList.contains(category)){
+card.style.display='block';
+}else{
+card.style.display='none';
+}
+});
+}
+
+function searchWallpapers(){
+let input=document.getElementById("search").value.toLowerCase();
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+let title=card.innerText.toLowerCase();
+
+if(title.includes(input)){
+card.style.display='block';
+}else{
+card.style.display='none';
+}
+});
+}
+</script>
 
 </body>
 </html>
